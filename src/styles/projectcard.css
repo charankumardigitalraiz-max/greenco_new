@@ -1,0 +1,204 @@
+/* ============================================
+   PREMIUM PROJECT CARD — GreenCo Estate
+   ============================================ */
+
+.project-card-premium {
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(27, 67, 50, 0.08);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card-premium:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    border-color: var(--secondary);
+}
+
+/* ── Media Section ──────────────────────────── */
+.card-media {
+    position: relative;
+    height: 200px;
+    /* Reduced from 240px */
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.media-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card-premium:hover .media-img {
+    transform: scale(1.1) rotate(1deg);
+}
+
+.media-overlay {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 2;
+}
+
+.badge {
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.status-upcoming {
+    background: var(--grad-primary);
+}
+
+.status-completed {
+    background: #1a1a1a;
+}
+
+.status-ongoing {
+    background: var(--secondary);
+    color: var(--primary-dark);
+}
+
+/* ── Body Section ───────────────────────────── */
+.card-body {
+    padding: 20px;
+    /* Reduced from 24px */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.proj-type {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--secondary);
+}
+
+.proj-loc {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #777;
+}
+
+.proj-loc svg {
+    color: var(--primary);
+}
+
+.proj-title {
+    font-size: 1.25rem;
+    /* Reduced from 1.4rem */
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 12px;
+    /* Reduced from 16px */
+    line-height: 1.2;
+}
+
+.proj-meta {
+    display: flex;
+    gap: 12px;
+    /* Reduced from 15px */
+    margin-bottom: 20px;
+    /* Reduced from 24px */
+    padding-bottom: 15px;
+    /* Reduced from 18px */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.7rem;
+    /* Reduced from 0.75rem */
+    font-weight: 700;
+    color: #555;
+    background: #f8f9f8;
+    padding: 5px 8px;
+    /* Reduced from 6px 10px */
+    border-radius: 8px;
+}
+
+.meta-item svg {
+    color: var(--secondary);
+}
+
+/* ── Bottom Section ─────────────────────────── */
+.card-bottom {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.proj-pricing .price-label {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 2px;
+    letter-spacing: 0.5px;
+}
+
+.price-val {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.proj-btn {
+    width: 48px;
+    height: 48px;
+    background: var(--primary);
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(27, 67, 50, 0.2);
+}
+
+.proj-btn:hover {
+    background: var(--secondary);
+    color: var(--primary-dark);
+    transform: scale(1.1) rotate(90deg);
+}
+
+@media (max-width: 640px) {
+    .proj-title {
+        font-size: 1.15rem;
+    }
+
+    .card-media {
+        height: 180px;
+    }
+}
