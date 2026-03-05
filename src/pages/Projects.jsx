@@ -197,7 +197,7 @@ const Projects = () => {
         <main className="projects-page">
             {/* Hero Section */}
             <section className="projects-hero" style={{ backgroundImage: 'url("/images/projects/projects.jpg")' }}>
-                <div className="hero-overlay" />
+                {/* <div className="hero-overlay" /> */}
                 <div className="container">
                     <div className="hero-inner" data-aos="fade-up">
                         <span className="hero-tag">Our Portfolio</span>

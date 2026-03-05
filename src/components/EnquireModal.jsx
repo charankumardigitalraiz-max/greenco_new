@@ -50,9 +50,9 @@ const EnquireModal = ({ isOpen, onClose }) => {
                     <div className="modal-side-pane">
                         <div className="side-pane-overlay"></div>
                         <div className="side-pane-content">
-                            <div className="side-logo-mini">
-                                <img src="/logo.png" alt="GreenCo Estate" />
-                            </div>
+                            {/* <div className="side-logo-mini">
+                                <img src="/logo2.png" className='enquire-model-logo' alt="GreenCo Estate" />
+                            </div> */}
                             <h3>Exclusive <span>Consultation</span></h3>
                             <p>Connecting you to premium real estate opportunities in Hyderabad's most sought-after locations.</p>
 

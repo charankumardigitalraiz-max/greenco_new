@@ -124,8 +124,9 @@
     line-height: 1.6;
     margin-bottom: 30px;
     opacity: 0.9;
-    max-width: 600px;
+    max-width: 750px; 
     margin: 0 auto;
+    text-align: left;
 }
 
 /* ── Stats Bar ───────────────────────────────── */

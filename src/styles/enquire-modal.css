@@ -90,15 +90,15 @@
 }
 
 .side-logo-mini {
-    background: white;
+    /* background: white; */
     display: inline-block;
     padding: 10px 15px;
     border-radius: 10px;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
 }
 
 .side-logo-mini img {
-    height: 35px;
+    height: 50px;
     width: auto;
 }
 
@@ -129,6 +129,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    align-items: flex-start;
 }
 
 .side-benefits li {
