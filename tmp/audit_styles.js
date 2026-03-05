@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const stylesDir = 'd:/charan/React/insaatinfra/src/styles';
+const stylesDir = 'd:/charan/React/greenCo new/src/styles';
 const files = fs.readdirSync(stylesDir).filter(f => f.endsWith('.css'));
 
 files.forEach(file => {
