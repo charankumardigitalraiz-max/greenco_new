@@ -1,17 +1,32 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Facebook, Instagram, Linkedin, Clock, MessageCircle, CheckCircle, ArrowRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Facebook, Instagram, Linkedin, Clock, MessageCircle, CheckCircle, ArrowRight, AlertCircle } from 'lucide-react';
+import { api } from '../../apiService/api';
 import '../styles/contact.css';
 
 const Contact = () => {
     const [formData, setFormData] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [errorMsg, setErrorMsg] = useState('');
 
     const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setIsSubmitted(true);
-        setTimeout(() => setIsSubmitted(false), 3000);
+        setIsLoading(true);
+        setErrorMsg('');
+
+        try {
+            await api.post('/contact', formData);
+            setIsSubmitted(true);
+            setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+            setTimeout(() => setIsSubmitted(false), 4000);
+        } catch (error) {
+            console.error('Contact Form Submit Error:', error);
+            setErrorMsg(error.response?.data?.message || 'Something went wrong. Please try again later.');
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     const contactCards = [
@@ -129,6 +144,12 @@ const Contact = () => {
                                         <span>Your message has been received.</span>
                                     </div>
                                 )}
+                                {errorMsg && (
+                                    <div className="form-error-alert" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: '#dc2626', marginBottom: '1.5rem', padding: '1rem', backgroundColor: '#fef2f2', borderRadius: '8px', border: '1px solid #fecaca' }}>
+                                        <AlertCircle size={20} />
+                                        <span>{errorMsg}</span>
+                                    </div>
+                                )}
 
                                 <form onSubmit={handleSubmit} className="premium-form">
                                     <div className="form-group-flat">
@@ -158,8 +179,8 @@ const Contact = () => {
                                         <label>Message</label>
                                         <textarea name="message" rows="4" placeholder="How can we assist you today?" value={formData.message} onChange={handleChange} required />
                                     </div>
-                                    <button type="submit" className="btn btn-primary form-submit-btn">
-                                        Send Message <Send size={16} />
+                                    <button type="submit" className="btn btn-primary form-submit-btn" disabled={isLoading} style={{ opacity: isLoading ? 0.7 : 1, cursor: isLoading ? 'not-allowed' : 'pointer' }}>
+                                        {isLoading ? 'Sending...' : 'Send Message'} {!isLoading && <Send size={16} />}
                                     </button>
                                 </form>
                             </div>
